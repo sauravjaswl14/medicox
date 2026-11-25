@@ -1,12 +1,12 @@
-# Carewell: hospital management (PERN + TypeScript + Tailwind)
+# Medicox: hospital management (PERN + TypeScript + Tailwind)
 
 One hospital per installation. Three parts:
 
-| Folder | What |
-| --- | --- |
-| `server` | Node, Express, TypeScript, Prisma, PostgreSQL, Zod, JWT |
-| `client` | React 18, Vite, Tailwind, TanStack Query: the staff app |
-| `web` | Next.js marketing site with GSAP and Motion (installs on its own, see `web/README.md`) |
+| Folder   | What                                                                                   |
+| -------- | -------------------------------------------------------------------------------------- |
+| `server` | Node, Express, TypeScript, Prisma, PostgreSQL, Zod, JWT                                |
+| `client` | React 18, Vite, Tailwind, TanStack Query: the staff app                                |
+| `web`    | Next.js marketing site with GSAP and Motion (installs on its own, see `web/README.md`) |
 
 ## Quick start
 
@@ -25,19 +25,19 @@ The seed prints every login. All share the password `Care@12345` (change `SEED_P
 
 ## Modules
 
-| Module | What it does |
-| --- | --- |
-| Departments | Eight sample departments with location and description; a department page lists its services and doctors |
-| Services | Per-department services with duration and price, chosen at booking and added to the bill |
-| Doctors | Profile, fee, linked login, weekly working hours and time away |
-| Patients | Medical record number (MRN), allergies, blood group, emergency contact, insurance. Never deleted |
-| Appointments | Live slot grid, booking, rescheduling, check-in, cancel, no-show |
-| Visits | Vitals, complaint, diagnosis, notes, follow-up; prescriptions and lab orders; closing locks the record |
-| Pharmacy | Medicines with stock and reorder level; prescriptions dispensed in full or not at all |
-| Laboratory | Test catalogue; order, collect sample, enter result flagged normal, abnormal or critical |
-| Wards and beds | Bed board, admit, discharge with summary, maintenance |
-| Billing | Invoices from a visit, a stay, or by hand; cash, card, insurance and online payments |
-| Administration | Users and roles, audit log |
+| Module         | What it does                                                                                             |
+| -------------- | -------------------------------------------------------------------------------------------------------- |
+| Departments    | Eight sample departments with location and description; a department page lists its services and doctors |
+| Services       | Per-department services with duration and price, chosen at booking and added to the bill                 |
+| Doctors        | Profile, fee, linked login, weekly working hours and time away                                           |
+| Patients       | Medical record number (MRN), allergies, blood group, emergency contact, insurance. Never deleted         |
+| Appointments   | Live slot grid, booking, rescheduling, check-in, cancel, no-show                                         |
+| Visits         | Vitals, complaint, diagnosis, notes, follow-up; prescriptions and lab orders; closing locks the record   |
+| Pharmacy       | Medicines with stock and reorder level; prescriptions dispensed in full or not at all                    |
+| Laboratory     | Test catalogue; order, collect sample, enter result flagged normal, abnormal or critical                 |
+| Wards and beds | Bed board, admit, discharge with summary, maintenance                                                    |
+| Billing        | Invoices from a visit, a stay, or by hand; cash, card, insurance and online payments                     |
+| Administration | Users and roles, audit log                                                                               |
 
 ## How appointment booking works
 
@@ -59,23 +59,23 @@ The seed prints every login. All share the password `Care@12345` (change `SEED_P
 
 `ADMIN` can do everything. Others are listed in `server/src/lib/permissions.ts` (enforced by the API) and mirrored in `client/src/lib/access.ts` (menus only).
 
-| Role | Main access |
-| --- | --- |
-| DOCTOR | Own appointments and visits, prescriptions, lab orders, admissions |
-| NURSE | Check-in, vitals, wards, patient registration |
-| RECEPTIONIST | Patients, booking, check-in, admissions, invoices and payments |
-| PHARMACIST | Prescriptions to dispense, medicines and stock |
-| LAB_TECH | Lab orders, samples, results, lab tests |
-| BILLING | Invoices and payments |
+| Role         | Main access                                                        |
+| ------------ | ------------------------------------------------------------------ |
+| DOCTOR       | Own appointments and visits, prescriptions, lab orders, admissions |
+| NURSE        | Check-in, vitals, wards, patient registration                      |
+| RECEPTIONIST | Patients, booking, check-in, admissions, invoices and payments     |
+| PHARMACIST   | Prescriptions to dispense, medicines and stock                     |
+| LAB_TECH     | Lab orders, samples, results, lab tests                            |
+| BILLING      | Invoices and payments                                              |
 
 ## Scripts
 
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | API and app with hot reload |
-| `npm run typecheck` | Type-check both workspaces |
-| `npm test` | Unit tests for slot arithmetic and money (no database needed) |
-| `npm run db:push` / `db:seed` | Create tables, load sample data |
+| Command                       | Purpose                                                       |
+| ----------------------------- | ------------------------------------------------------------- |
+| `npm run dev`                 | API and app with hot reload                                   |
+| `npm run typecheck`           | Type-check both workspaces                                    |
+| `npm test`                    | Unit tests for slot arithmetic and money (no database needed) |
+| `npm run db:push` / `db:seed` | Create tables, load sample data                               |
 
 ## Not included yet
 

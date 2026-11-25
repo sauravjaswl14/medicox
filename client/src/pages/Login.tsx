@@ -1,12 +1,12 @@
-import { FormEvent, useState } from 'react';
-import { Navigate } from 'react-router-dom';
-import { useAuth } from '../lib/auth';
-import { Button, ErrorBox } from '../components/ui';
+import { FormEvent, useState } from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../lib/auth";
+import { Button, ErrorBox } from "../components/ui";
 
 export default function Login() {
   const { user, login } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState<unknown>(null);
   const [busy, setBusy] = useState(false);
   if (user) return <Navigate to="/" replace />;
@@ -26,11 +26,16 @@ export default function Login() {
 
   return (
     <div className="grid min-h-screen place-items-center bg-gradient-to-br from-brand-900 via-brand-700 to-brand-900 p-4">
-      <form onSubmit={submit} className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-2xl">
+      <form
+        onSubmit={submit}
+        className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-2xl"
+      >
         <div className="mb-6 flex items-center gap-3">
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-600 text-lg font-semibold text-white">+</span>
+          <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-600 text-lg font-semibold text-white">
+            +
+          </span>
           <div>
-            <h1 className="text-lg font-semibold text-slate-900">Carewell</h1>
+            <h1 className="text-lg font-semibold text-slate-900">Medicox</h1>
             <p className="text-xs text-slate-500">Staff sign in</p>
           </div>
         </div>
@@ -38,13 +43,29 @@ export default function Login() {
         <label className="label" htmlFor="email">
           Email
         </label>
-        <input id="email" className="input mb-4" type="email" required autoComplete="username" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input
+          id="email"
+          className="input mb-4"
+          type="email"
+          required
+          autoComplete="username"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <label className="label" htmlFor="password">
           Password
         </label>
-        <input id="password" className="input mb-6" type="password" required autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input
+          id="password"
+          className="input mb-6"
+          type="password"
+          required
+          autoComplete="current-password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <Button type="submit" className="w-full" disabled={busy}>
-          {busy ? 'Signing in…' : 'Sign in'}
+          {busy ? "Signing in…" : "Sign in"}
         </Button>
       </form>
     </div>
